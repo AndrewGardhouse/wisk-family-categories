@@ -2,19 +2,19 @@
   <div id="app">
     <h1>Wisk Solutions</h1>
     <Dropdown></Dropdown>
-    <CategoryModal></CategoryModal>
+    <FamiliesModal></FamiliesModal>
   </div>
 </template>
 
 <script>
 import Dropdown from './components/Dropdown'
-import CategoryModal from './components/CategoryModal'
+import FamiliesModal from './components/FamiliesModal'
 
 export default {
   name: 'app',
   components: {
     Dropdown,
-    CategoryModal
+    FamiliesModal
   }
 }
 </script>
