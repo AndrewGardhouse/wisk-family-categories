@@ -1,11 +1,20 @@
 <template>
-  <b-modal id="familiesModal" title="Families Modal"></b-modal>
+  <b-modal id="familiesModal" size="lg" title="Families & Distributors">
+    <div class="header">
+      <h3 class="text-left">Custom Categories</h3>
+    </div>
+    <Family v-for="family in families" :family="family"></Family>
+  </b-modal>
 </template>
 
 <script>
 import axios from 'axios'
+import Family from './Family'
 
 export default {
+  components: {
+    Family
+  },
   data() {
     return {
       families: []
@@ -14,7 +23,7 @@ export default {
   created() {
     axios.get('./static/categories-families.json')
       .then((res) => {
-        this.families = res.data.data
+        this.families = res.data.data.filter((family) => family.title !== 'Unknown')
       })
       .catch((err) => {
         console.error(err);
