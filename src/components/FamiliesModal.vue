@@ -3,6 +3,7 @@
     <div class="header">
       <h3 class="text-left">Custom Categories</h3>
     </div>
+    <hr>
     <Family v-for="family in families" :family="family"></Family>
   </b-modal>
 </template>

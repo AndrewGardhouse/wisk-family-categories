@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h1>Wisk Solutions</h1>
-    <Dropdown></Dropdown>
+    <h1 class="center">Wisk Solutions</h1>
+    <Dropdown class="center"></Dropdown>
     <FamiliesModal></FamiliesModal>
   </div>
 </template>
@@ -20,11 +20,14 @@ export default {
 </script>
 
 <style>
+.center {
+  text-align: center;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
