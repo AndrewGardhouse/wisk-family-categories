@@ -1,0 +1,310 @@
+{
+    "data": [
+        {
+            "id": 49582,
+            "title": "Unknown",
+            "venue_id": 949783,
+            "categories": [
+                {
+                    "density": 1,
+                    "title": "Unknown",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72661
+                }
+            ]
+        },
+        {
+            "id": 49583,
+            "title": "Wine",
+            "venue_id": 949783,
+            "categories": [
+                {
+                    "density": 1,
+                    "title": "Champagne and Sparkling Wine",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72662
+                },
+                {
+                    "density": 1,
+                    "title": "Red Wine",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72663
+                },
+                {
+                    "density": 1,
+                    "title": "White Wine",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72664
+                },
+                {
+                    "density": 1,
+                    "title": "Rosé Wine",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72665
+                },
+                {
+                    "density": 1,
+                    "title": "Cider",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72666
+                },
+                {
+                    "density": 1,
+                    "title": "Dessert Wine",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72667
+                },
+                {
+                    "density": 1,
+                    "title": "Honey Wine",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72668
+                },
+                {
+                    "density": 1,
+                    "title": "Port and Fortified Wine",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72669
+                },
+                {
+                    "density": 1,
+                    "title": "Sake",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "slider",
+                    "id": 72670
+                }
+            ]
+        },
+        {
+            "id": 49584,
+            "title": "Liquor",
+            "venue_id": 949783,
+            "categories": [
+                {
+                    "density": 0.95,
+                    "title": "Vodka",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72671
+                },
+                {
+                    "density": 1,
+                    "title": "Rum",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72672
+                },
+                {
+                    "density": 1,
+                    "title": "Gin",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72673
+                },
+                {
+                    "density": 1,
+                    "title": "Tequila",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72674
+                },
+                {
+                    "density": 1,
+                    "title": "Liqueur and Cream",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72675
+                },
+                {
+                    "density": 0.94,
+                    "title": "Scotch and Whisky",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72676
+                },
+                {
+                    "density": 1,
+                    "title": "Cognac and Brandy",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72677
+                },
+                {
+                    "density": 1,
+                    "title": "Eau-de-vie",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72678
+                },
+                {
+                    "density": 1,
+                    "title": "Anise-Flavoured Spirits",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72679
+                },
+                {
+                    "density": 1,
+                    "title": "Absinth",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72680
+                },
+                {
+                    "density": 1,
+                    "title": "Grappa",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72681
+                },
+                {
+                    "density": 1,
+                    "title": "Aperitif",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72682
+                },
+                {
+                    "density": 1,
+                    "title": "Coolers and Pre-Mixed Drinks",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "scale",
+                    "id": 72683
+                }
+            ]
+        },
+        {
+            "id": 49585,
+            "title": "Miscellaneous",
+            "venue_id": 949783,
+            "categories": [
+                {
+                    "density": 1,
+                    "title": "Miscellaneous Alcohol",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72684
+                },
+                {
+                    "density": 1,
+                    "title": "Miscellaneous Stock",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72685
+                }
+            ]
+        },
+        {
+            "id": 49586,
+            "title": "Beer",
+            "venue_id": 949783,
+            "categories": [
+                {
+                    "density": 1,
+                    "title": "Beer Bottle",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72686
+                },
+                {
+                    "density": 1,
+                    "title": "Beer Can",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72687
+                },
+                {
+                    "density": 1,
+                    "title": "Beer Keg",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72688
+                }
+            ]
+        },
+        {
+            "id": 49587,
+            "title": "Non-Alcoholic",
+            "venue_id": 949783,
+            "categories": [
+                {
+                    "density": 1,
+                    "title": "Soda and Juice",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72689
+                },
+                {
+                    "density": 1,
+                    "title": "Energy Drink",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72690
+                },
+                {
+                    "density": 1,
+                    "title": "Syrup",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72691
+                },
+                {
+                    "density": 1,
+                    "title": "Water",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72692
+                },
+                {
+                    "density": 1,
+                    "title": "Non-Alcoholic Premix",
+                    "venue_id": 949783,
+                    "excluded_from_variance": false,
+                    "partial": "none",
+                    "id": 72693
+                }
+            ]
+        }
+    ]
+}
