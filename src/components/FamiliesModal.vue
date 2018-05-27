@@ -6,7 +6,12 @@
       </div>
       <hr>
       <div v-for="family in families" class="m-3">
-        <h5 class="text-left mb-2">{{ family.title }}</h5>
+        <h5 class="text-left mb-2">
+          {{ family.title }}
+          <small>
+            (<a href="#">Edit</a> | <a href="#" v-on:click.prevent="deleteFamily(family)" class="text-danger">Delete</a>)
+          </small>
+        </h5>
         <b-table fixed small :items="family.categories" :fields="fields">
           <template slot="title" slot-scope="data">
             <a href="#" v-on:click.prevent="openForm(data.item)">
@@ -120,6 +125,11 @@ export default {
       const categoryIndex = categories.indexOf(category)
 
       categories.splice(categoryIndex, 1);
+    },
+    deleteFamily(family) {
+      const familyIndex = this.families.indexOf(family)
+
+      this.families.splice(familyIndex, 1);
     }
   }
 }
