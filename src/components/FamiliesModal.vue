@@ -4,7 +4,7 @@
       <h3 class="text-left">Custom Categories</h3>
     </div>
     <hr>
-    <Family v-for="family in families" :family="family"></Family>
+    <Family v-for="family in families" :family="family" :key="family.id"></Family>
   </b-modal>
 </template>
 
