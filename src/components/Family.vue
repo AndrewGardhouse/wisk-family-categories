@@ -1,9 +1,9 @@
 <template>
   <div class="m-3">
     <h5 class="text-left mb-2">{{ family.title }}</h5>
-    <b-table striped bordered :items="family.categories" :fields="fields">
+    <b-table fixed small :items="family.categories" :fields="fields">
       <template slot="title" slot-scope="data">
-        <a href="#">{{ data.value }}</a>
+        <a href="#">{{ data.item.title }}</a>
       </template>
       <template slot="bottleCount" slot-scope="data">
         {{ randomBottleCount() }}
@@ -12,7 +12,6 @@
         Delete
       </template>
     </b-table>
-    <hr>
   </div>
 </template>
 
@@ -27,7 +26,10 @@ export default {
   data() {
     return {
       fields: [
-        'title',
+        {
+          key: 'title',
+          label: 'Category Name'
+        },
         'bottleCount',
         'delete'
       ]
