@@ -9,13 +9,17 @@
         <h5 class="text-left mb-2">{{ family.title }}</h5>
         <b-table fixed small :items="family.categories" :fields="fields">
           <template slot="title" slot-scope="data">
-            <a href="#" v-on:click="openForm(family.id, data.item.id)">{{ data.item.title }}</a>
+            <a href="#" v-on:click.prevent="openForm(data.item)">
+              {{ data.item.title }}
+            </a>
           </template>
           <template slot="bottleCount" slot-scope="data">
             {{ randomBottleCount() }}
           </template>
           <template slot="delete" slot-scope="data">
-            Delete
+            <a href="#" v-on:click.prevent="deleteCategory(family.id, data.item)" class="text-danger">
+              Delete
+            </a>
           </template>
         </b-table>
       </div>
@@ -61,7 +65,7 @@
       </table>
       <b-form-group class="float-right">
         <b-button type="cancel" v-on:click="cancelUpdate" variant="danger">Cancel</b-button>
-        <b-button type="submit" variant="primary" v-on:click="updateCategory">Submit</b-button>
+        <b-button type="submit" variant="primary" v-on:click="updateCategory">Ok</b-button>
       </b-form-group>
     </div>
   </b-modal>
@@ -100,17 +104,22 @@ export default {
     randomBottleCount() {
       return Math.floor(Math.random() * Math.floor(10));
     },
-    openForm(familyId, categoryId) {
-      const selectedFamily = this.families.filter(family => family.id === familyId)[0]
-
+    openForm(category) {
       this.showFamilies = false
-      this.category = selectedFamily.categories.filter(category => category.id === categoryId)[0]
+      this.category = category
     },
     updateCategory() {
       this.showFamilies = true
     },
     cancelUpdate() {
       this.showFamilies = true
+      this.category = {}
+    },
+    deleteCategory(familyId, category) {
+      const categories = this.families.find(family => family.id === familyId).categories
+      const categoryIndex = categories.indexOf(category)
+
+      categories.splice(categoryIndex, 1);
     }
   }
 }
