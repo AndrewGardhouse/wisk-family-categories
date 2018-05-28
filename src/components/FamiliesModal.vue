@@ -129,7 +129,7 @@
           </template>
           <template slot="delete" slot-scope="data">
             <a href="#" v-on:click.prevent="deleteCategory(family.id, data.item)" class="text-danger">
-              Delete
+              <Icon name="trash-alt"></Icon>
             </a>
           </template>
         </b-table>
@@ -140,8 +140,13 @@
 
 <script>
 import axios from 'axios';
+import 'vue-awesome/icons/trash-alt';
+import Icon from 'vue-awesome/components/Icon'
 
 export default {
+  components: {
+    Icon
+  },
   data() {
     return {
       families: [],
