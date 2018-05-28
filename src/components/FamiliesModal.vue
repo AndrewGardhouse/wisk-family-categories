@@ -19,7 +19,7 @@
             </td>
             <td>
               <b-form-group>
-                <b-form-input name="range" list="tickmarks" v-model.number="category.density" min="0.5" max="1.5" step="0.01" type="number"></b-form-input>
+                <b-form-input name="range" v-model.number="category.density" min="0.5" max="1.5" step="0.01" type="number"></b-form-input>
               </b-form-group>
             </td>
             <td>
@@ -47,10 +47,7 @@
     <div v-else-if="showNewFamilyForm">
       <h3 class="mb-4">Add New Alcohol Family</h3>
       <b-form v-on:submit.prevent="createFamily">
-        <b-form-group>
-          <label for="familyTitle">
-            <strong>Title</strong>
-          </label>
+        <b-form-group label="<strong>Title</strong>">
           <b-form-input name="familyTitle" v-model="newFamilyTitle" type="text" placeholder="Add Family Name" required></b-form-input>
         </b-form-group>
         <b-button variant="danger" v-on:click="cancelCreateFamily">Cancel</b-button>
@@ -58,7 +55,42 @@
       </b-form>
     </div>
     <div v-else-if="showNewCategoryForm">
-      <h3>New Category</h3>
+      <h3 class="mb-4">Add Category</h3>
+
+      <b-form v-on:submit.prevent="createCategory">
+
+        <b-form-group label="<strong>Family</strong>">
+          <select class="form-control" id="exampleFormControlSelect1" v-model="newCategoryFamily">
+            <option value="" selected disabled>Please select</option>
+            <option v-for="family in families" :value="family.title">{{ family.title }}</option>
+          </select>
+        </b-form-group>
+
+        <b-form-group label="<strong>Title</strong>">
+          <b-form-input name="categoryTitle" v-model="newCategory.title" type="text" placeholder="Add Category Name" required></b-form-input>
+        </b-form-group>
+
+        <b-form-group label="<strong>Density</strong>">
+          <b-form-input name="categoryDensity" v-model.number="newCategory.density" min="0.5" max="1.5" step="0.01" type="number"></b-form-input>
+        </b-form-group>
+
+        <b-form-group>
+          <b-form-checkbox id="excluded_from_variance" v-model="newCategory.excluded_from_variance">
+            <strong>Excluded From Variance</strong>
+          </b-form-checkbox>
+        </b-form-group>
+
+        <b-form-group label="<strong>Partial</strong>">
+          <b-form-radio-group id="partial" v-model="newCategory.partial" :selected-value="newCategory.partial" name="categoryPartial">
+            <b-form-radio value="slider">Slider</b-form-radio>
+            <b-form-radio value="scale">Scale</b-form-radio>
+            <b-form-radio value="none">None</b-form-radio>
+          </b-form-radio-group>
+        </b-form-group>
+
+        <b-button variant="danger" v-on:click="cancelCreateCategory">Cancel</b-button>
+        <b-button type="submit" variant="primary">Add Category</b-button>
+      </b-form>
     </div>
     <div v-else>
       <div class="header">
@@ -121,7 +153,14 @@ export default {
         'delete'
       ],
       category: {},
-      newFamilyTitle: ''
+      newFamilyTitle: '',
+      newCategory: {
+        title: '',
+        density: 1,
+        excluded_from_variance: false,
+        partial: 'none'
+      },
+      newCategoryFamily: ''
     }
   },
   created() {
@@ -188,7 +227,26 @@ export default {
     },
     cancelCreateFamily() {
       this.showNewFamilyForm = false;
-    }
+    },
+    createCategory() {
+      // push new category to selected family
+      this.families.find(family => family.title === this.newCategoryFamily).categories.push(this.newCategory);
+
+      // reset new category object and family
+      this.newCategoryFamily = '';
+      this.newCategory = {
+        title: '',
+        density: 1,
+        excluded_from_variance: false,
+        partial: 'none'
+      };
+
+      // close form section
+      this.showNewCategoryForm = false;
+    },
+    cancelCreateCategory() {
+      this.showNewCategoryForm = false;
+    },
   }
 }
 </script>
