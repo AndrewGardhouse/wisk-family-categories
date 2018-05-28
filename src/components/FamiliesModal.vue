@@ -50,8 +50,10 @@
         <b-form-group label="<strong>Title</strong>">
           <b-form-input name="familyTitle" v-model="newFamilyTitle" type="text" placeholder="Add Family Name" required></b-form-input>
         </b-form-group>
-        <b-button variant="danger" v-on:click="cancelCreateFamily">Cancel</b-button>
-        <b-button type="submit" variant="primary">Add Family</b-button>
+        <b-form-group class="float-right">
+          <b-button variant="danger" v-on:click="cancelCreateFamily">Cancel</b-button>
+          <b-button type="submit" variant="primary">Add Family</b-button>
+        </b-form-group>
       </b-form>
     </div>
     <div v-else-if="showNewCategoryForm">
@@ -88,8 +90,10 @@
           </b-form-radio-group>
         </b-form-group>
 
-        <b-button variant="danger" v-on:click="cancelCreateCategory">Cancel</b-button>
-        <b-button type="submit" variant="primary">Add Category</b-button>
+        <b-form-group class="float-right">
+          <b-button variant="danger" v-on:click="cancelCreateCategory">Cancel</b-button>
+          <b-button type="submit" variant="primary">Add Category</b-button>
+        </b-form-group>
       </b-form>
     </div>
     <div v-else>
