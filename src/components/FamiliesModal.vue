@@ -6,10 +6,16 @@
       </div>
       <hr>
       <div v-for="family in families" class="m-3">
-        <h5 class="text-left mb-2">
+        <b-form inline v-if="family.editFamily" class="mb-2">
+          <b-form-group>
+            <b-form-input name="title" v-model="family.title" type="text"></b-form-input>
+            <b-button v-on:click="closeFamilyField(family)" variant="primary">Ok</b-button>
+          </b-form-group>
+        </b-form>
+        <h5 class="text-left mb-2" v-else>
           {{ family.title }}
           <small>
-            (<a href="#">Edit</a> | <a href="#" v-on:click.prevent="deleteFamily(family)" class="text-danger">Delete</a>)
+            (<a href="#" v-on:click.prevent="showEditFamilyField(family)">Edit</a> | <a href="#" v-on:click.prevent="deleteFamily(family)" class="text-danger">Delete</a>)
           </small>
         </h5>
         <b-table fixed small :items="family.categories" :fields="fields">
@@ -98,8 +104,8 @@ export default {
   created() {
     axios.get('./static/categories-families.json')
       .then((res) => {
+        res.data.data.forEach(family => family.editFamily = false)
         this.families = res.data.data.filter((family) => family.title !== 'Unknown')
-        this.category = this.families[0].categories[0]
       })
       .catch((err) => {
         console.error(err);
@@ -130,6 +136,14 @@ export default {
       const familyIndex = this.families.indexOf(family)
 
       this.families.splice(familyIndex, 1);
+    },
+    showEditFamilyField(editableFamily) {
+      const family = this.families.find(family => family === editableFamily)
+      family.editFamily = true
+    },
+    closeFamilyField(editableFamily) {
+      const family = this.families.find(family => family === editableFamily)
+      family.editFamily = false
     }
   }
 }
