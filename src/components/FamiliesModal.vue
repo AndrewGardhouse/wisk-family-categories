@@ -24,7 +24,7 @@
         </h5>
         <b-table fixed small :items="family.categories" :fields="fields">
           <template slot="title" slot-scope="data">
-            <a href="#" v-on:click.prevent="openForm(data.item)">
+            <a href="#" v-on:click.prevent="openEditCategoryForm(data.item)">
               {{ data.item.title }}
             </a>
           </template>
@@ -119,7 +119,7 @@ export default {
     randomBottleCount() {
       return Math.floor(Math.random() * Math.floor(10));
     },
-    openForm(category) {
+    openEditCategoryForm(category) {
       this.showFamilies = false
       this.category = category
     },
