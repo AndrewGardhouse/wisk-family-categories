@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="familiesModal" size="lg" centered ok-only title="Families & Distributors">
+  <b-modal id="familiesModal" size="lg" centered ok-only title="Families & Distributors" @hide="closeModal">
     <div v-if="showEditCategoryForm">
       <table class="table">
         <thead>
@@ -163,13 +163,13 @@ export default {
       ],
       category: {},
       newFamilyTitle: '',
+      newCategoryFamily: '',
       newCategory: {
         title: '',
         density: 1,
         excluded_from_variance: false,
         partial: 'none'
-      },
-      newCategoryFamily: ''
+      }
     }
   },
   created() {
@@ -256,6 +256,16 @@ export default {
     cancelCreateCategory() {
       this.showNewCategoryForm = false;
     },
+    closeModal() {
+      setTimeout(() => {
+        this.showEditCategoryForm = false;
+        this.showNewFamilyForm = false;
+        this.showNewCategoryForm = false;
+        this.category = {};
+        this.newFamilyTitle = '';
+        this.newCategoryFamily = '';
+      }, 1000);
+    }
   }
 }
 </script>
