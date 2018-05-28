@@ -1,45 +1,6 @@
 <template>
   <b-modal id="familiesModal" size="lg" centered ok-only title="Families & Distributors">
-    <div v-if="showFamilies">
-      <div class="header">
-        <h3 class="text-left d-inline-block">Custom Categories</h3>
-        <b-button-group class="float-right" size="sm">
-          <b-button class="m-1" variant="primary">Add New Family</b-button>
-          <b-button class="m-1" variant="primary">Add New Category</b-button>
-        </b-button-group>
-      </div>
-      <hr>
-      <div v-for="family in families" class="m-3">
-        <b-form inline v-if="family.editFamily" v-on:submit.prevent="closeFamilyField(family)" class="mb-2">
-          <b-form-group>
-            <b-form-input name="title" v-model="family.title" type="text" required></b-form-input>
-            <b-button type="submit" variant="primary">Ok</b-button>
-          </b-form-group>
-        </b-form>
-        <h5 class="text-left mb-2" v-else>
-          {{ family.title }}
-          <small>
-            (<a href="#" v-on:click.prevent="showEditFamilyField(family)">Edit</a> | <a href="#" v-on:click.prevent="deleteFamily(family)" class="text-danger">Delete</a>)
-          </small>
-        </h5>
-        <b-table fixed small :items="family.categories" :fields="fields">
-          <template slot="title" slot-scope="data">
-            <a href="#" v-on:click.prevent="openEditCategoryForm(data.item)">
-              {{ data.item.title }}
-            </a>
-          </template>
-          <template slot="bottleCount" slot-scope="data">
-            {{ randomBottleCount() }}
-          </template>
-          <template slot="delete" slot-scope="data">
-            <a href="#" v-on:click.prevent="deleteCategory(family.id, data.item)" class="text-danger">
-              Delete
-            </a>
-          </template>
-        </b-table>
-      </div>
-    </div>
-    <div v-else>
+    <div v-if="showEditCategoryForm">
       <table class="table">
         <thead>
           <tr>
@@ -83,6 +44,45 @@
         <b-button type="submit" variant="primary" v-on:click="updateCategory">Ok</b-button>
       </b-form-group>
     </div>
+    <div v-else>
+      <div class="header">
+        <h3 class="text-left d-inline-block">Custom Categories</h3>
+        <b-button-group class="float-right" size="sm">
+          <b-button class="m-1" variant="primary">Add New Family</b-button>
+          <b-button class="m-1" variant="primary">Add New Category</b-button>
+        </b-button-group>
+      </div>
+      <hr>
+      <div v-for="family in families" class="m-3">
+        <b-form inline v-if="family.editFamily" v-on:submit.prevent="closeFamilyField(family)" class="mb-2">
+          <b-form-group>
+            <b-form-input name="title" v-model="family.title" type="text" required></b-form-input>
+            <b-button type="submit" variant="primary">Ok</b-button>
+          </b-form-group>
+        </b-form>
+        <h5 class="text-left mb-2" v-else>
+          {{ family.title }}
+          <small>
+            (<a href="#" v-on:click.prevent="showEditFamilyField(family)">Edit</a> | <a href="#" v-on:click.prevent="deleteFamily(family)" class="text-danger">Delete</a>)
+          </small>
+        </h5>
+        <b-table fixed small :items="family.categories" :fields="fields">
+          <template slot="title" slot-scope="data">
+            <a href="#" v-on:click.prevent="openEditCategoryForm(data.item)">
+              {{ data.item.title }}
+            </a>
+          </template>
+          <template slot="bottleCount" slot-scope="data">
+            {{ randomBottleCount() }}
+          </template>
+          <template slot="delete" slot-scope="data">
+            <a href="#" v-on:click.prevent="deleteCategory(family.id, data.item)" class="text-danger">
+              Delete
+            </a>
+          </template>
+        </b-table>
+      </div>
+    </div>
   </b-modal>
 </template>
 
@@ -93,7 +93,9 @@ export default {
   data() {
     return {
       families: [],
-      showFamilies: true,
+      showEditCategoryForm: false,
+      showNewFamilyForm: false,
+      showNewCategoryForm: false,
       fields: [
         {
           key: 'title',
