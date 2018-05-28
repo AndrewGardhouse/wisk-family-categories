@@ -45,7 +45,17 @@
       </b-form-group>
     </div>
     <div v-else-if="showNewFamilyForm">
-      <h3>New Family</h3>
+      <h3 class="mb-4">Add New Alcohol Family</h3>
+      <b-form v-on:submit.prevent="createFamily">
+        <b-form-group>
+          <label for="familyTitle">
+            <strong>Title</strong>
+          </label>
+          <b-form-input name="familyTitle" v-model="newFamilyTitle" type="text" placeholder="Add Family Name" required></b-form-input>
+        </b-form-group>
+        <b-button variant="danger" v-on:click="cancelCreateFamily">Cancel</b-button>
+        <b-button type="submit" variant="primary">Add Family</b-button>
+      </b-form>
     </div>
     <div v-else-if="showNewCategoryForm">
       <h3>New Category</h3>
@@ -110,7 +120,8 @@ export default {
         'bottleCount',
         'delete'
       ],
-      category: {}
+      category: {},
+      newFamilyTitle: ''
     }
   },
   created() {
@@ -163,6 +174,20 @@ export default {
     closeFamilyField(editableFamily) {
       const family = this.families.find(family => family === editableFamily);
       family.editFamily = false;
+    },
+    createFamily() {
+      const newFamily = {
+        title: this.newFamilyTitle,
+        id: Math.floor(Math.random() * Math.floor(999)),
+        venue_id: Math.floor(Math.random() * Math.floor(999)),
+        categories: []
+      };
+
+      this.families.unshift(newFamily);
+      this.showNewFamilyForm = false;
+    },
+    cancelCreateFamily() {
+      this.showNewFamilyForm = false;
     }
   }
 }
