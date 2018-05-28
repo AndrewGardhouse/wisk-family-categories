@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Dropdown from './components/Dropdown'
-import FamiliesModal from './components/FamiliesModal'
+import Dropdown from './components/Dropdown';
+import FamiliesModal from './components/FamiliesModal';
 
 export default {
   name: 'app',

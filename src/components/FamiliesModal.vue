@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   data() {
@@ -108,8 +108,8 @@ export default {
   created() {
     axios.get('./static/categories-families.json')
       .then((res) => {
-        res.data.data.forEach(family => family.editFamily = false)
-        this.families = res.data.data.filter((family) => family.title !== 'Unknown')
+        res.data.data.forEach(family => family.editFamily = false);
+        this.families = res.data.data.filter((family) => family.title !== 'Unknown');
       })
       .catch((err) => {
         console.error(err);
@@ -120,34 +120,34 @@ export default {
       return Math.floor(Math.random() * Math.floor(10));
     },
     openEditCategoryForm(category) {
-      this.showFamilies = false
-      this.category = category
+      this.showFamilies = false;
+      this.category = category;
     },
     updateCategory() {
-      this.showFamilies = true
+      this.showFamilies = true;
     },
     cancelUpdate() {
-      this.showFamilies = true
-      this.category = {}
+      this.showFamilies = true;
+      this.category = {};
     },
     deleteCategory(familyId, category) {
-      const categories = this.families.find(family => family.id === familyId).categories
-      const categoryIndex = categories.indexOf(category)
+      const categories = this.families.find(family => family.id === familyId).categories;
+      const categoryIndex = categories.indexOf(category);
 
       categories.splice(categoryIndex, 1);
     },
     deleteFamily(family) {
-      const familyIndex = this.families.indexOf(family)
+      const familyIndex = this.families.indexOf(family);
 
       this.families.splice(familyIndex, 1);
     },
     showEditFamilyField(editableFamily) {
-      const family = this.families.find(family => family === editableFamily)
-      family.editFamily = true
+      const family = this.families.find(family => family === editableFamily);
+      family.editFamily = true;
     },
     closeFamilyField(editableFamily) {
-      const family = this.families.find(family => family === editableFamily)
-      family.editFamily = false
+      const family = this.families.find(family => family === editableFamily);
+      family.editFamily = false;
     }
   }
 }
