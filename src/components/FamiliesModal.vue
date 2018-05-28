@@ -44,12 +44,18 @@
         <b-button type="submit" variant="primary" v-on:click="updateCategory">Ok</b-button>
       </b-form-group>
     </div>
+    <div v-else-if="showNewFamilyForm">
+      <h3>New Family</h3>
+    </div>
+    <div v-else-if="showNewCategoryForm">
+      <h3>New Category</h3>
+    </div>
     <div v-else>
       <div class="header">
         <h3 class="text-left d-inline-block">Custom Categories</h3>
         <b-button-group class="float-right" size="sm">
-          <b-button class="m-1" variant="primary">Add New Family</b-button>
-          <b-button class="m-1" variant="primary">Add New Category</b-button>
+          <b-button class="m-1" variant="primary" v-on:click="openNewFamilyForm">Add New Family</b-button>
+          <b-button class="m-1" variant="primary" v-on:click="openNewCategoryForm">Add New Category</b-button>
         </b-button-group>
       </div>
       <hr>
@@ -122,14 +128,21 @@ export default {
       return Math.floor(Math.random() * Math.floor(10));
     },
     openEditCategoryForm(category) {
-      this.showFamilies = false;
+      this.showEditCategoryForm = true;
       this.category = category;
     },
+    openNewCategoryForm() {
+      this.showNewCategoryForm = true;
+    },
+    openNewFamilyForm() {
+      this.showNewFamilyForm = true;
+    },
     updateCategory() {
-      this.showFamilies = true;
+      this.showEditCategoryForm = false;
+      this.category = {};
     },
     cancelUpdate() {
-      this.showFamilies = true;
+      this.showEditCategoryForm = false;
       this.category = {};
     },
     deleteCategory(familyId, category) {
