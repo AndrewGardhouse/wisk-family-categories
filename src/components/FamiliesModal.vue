@@ -2,7 +2,11 @@
   <b-modal id="familiesModal" size="lg" centered ok-only title="Families & Distributors">
     <div v-if="showFamilies">
       <div class="header">
-        <h3 class="text-left">Custom Categories</h3>
+        <h3 class="text-left d-inline-block">Custom Categories</h3>
+        <b-button-group class="float-right" size="sm">
+          <b-button class="m-1" variant="primary">Add New Family</b-button>
+          <b-button class="m-1" variant="primary">Add New Category</b-button>
+        </b-button-group>
       </div>
       <hr>
       <div v-for="family in families" class="m-3">
