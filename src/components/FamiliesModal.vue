@@ -6,10 +6,10 @@
       </div>
       <hr>
       <div v-for="family in families" class="m-3">
-        <b-form inline v-if="family.editFamily" class="mb-2">
+        <b-form inline v-if="family.editFamily" v-on:submit.prevent="closeFamilyField(family)" class="mb-2">
           <b-form-group>
-            <b-form-input name="title" v-model="family.title" type="text"></b-form-input>
-            <b-button v-on:click="closeFamilyField(family)" variant="primary">Ok</b-button>
+            <b-form-input name="title" v-model="family.title" type="text" required></b-form-input>
+            <b-button type="submit" variant="primary">Ok</b-button>
           </b-form-group>
         </b-form>
         <h5 class="text-left mb-2" v-else>
